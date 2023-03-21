@@ -47,12 +47,8 @@ Spawn in a number of Zombies and proceed with normal D&D Combat. Award a Player 
 Use the Zombie "Slam" Ability to attack your Players Characters with. This Ability will get stronger each new Zombie Spawn.
 
 Things the Players can currently get in the Slotmaschines.
-		"Ability Score Improvment"
-		"Max HP up"
-		"AC up"
-		"Cantrip"
-		"Weapon Upgrade"
-		"Cantrip Upgrade"
+
+**"Ability Score Improvment", "Max HP up", "AC up", "Cantrip", "Weapon Upgrade", "Cantrip Upgrade"**
 
 
 
