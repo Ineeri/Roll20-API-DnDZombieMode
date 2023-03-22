@@ -1114,7 +1114,7 @@
 	}
 	function setDefaultAttributes(){
 		for(let i = 0; i < players.length; i++){
-			attributeCreator("ep", playerCharacterIds[i], 20);
+			attributeCreator("ep", playerCharacterIds[i], 30);
 			attributeCreator("hp", playerCharacterIds[i], 15, 15);
 			attributeCreator("ac", playerCharacterIds[i], 10);
 			attributeCreator("speed", playerCharacterIds[i], 30);
