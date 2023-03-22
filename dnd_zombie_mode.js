@@ -902,11 +902,7 @@
 	function createZombieBoss(){
 		let myLeft = getRandomPos(gmPage.get("width"),"left");
 		let myTop = getRandomPos(gmPage.get("height"),"top");
-
-		while (isIntersectingBuilding(myLeft, myTop)){
-			myLeft = getRandomPos(gmPage.get("width"),"left");
-			myTop = getRandomPos(gmPage.get("height"),"top");
-		}		
+		
 		
 		let data = {
 			pageid: gmPage.get("id"),
@@ -1003,10 +999,6 @@
 			let zLeft = getRandomPos(gmPage.get("width"));
 			let zTop = getRandomPos(gmPage.get("height"));
 			
-			while (isIntersectingBuilding(zLeft, zTop)){
-				zLeft = getRandomPos(gmPage.get("width"));
-				zTop = getRandomPos(gmPage.get("height"));
-			}
 			for(let j = 0; j < ZOMBIETOKENLINKS.length; j++){
 				let data = {
 					pageid: gmPage.get("id"),
@@ -1033,34 +1025,6 @@
 				zombieTokenIds.push(token.get("id"));
 			}			
 		}
-	}
-	function isIntersectingBuilding(zLeft, zTop){
-		let myBuilding = findObjs({_type: "path", _pageid: gmPage.get("id"), layer: "map"});
-		let leastLeft, highestLeft, leastTop, highestTop;
-		
-		leastLeft = myBuilding[0].get("left");
-		highestLeft = myBuilding[0].get("left");
-		leastTop = myBuilding[0].get("top");
-		highestTop = myBuilding[0].get("top");
-		
-		for(let i = 0; i < myBuilding.length; i++){			
-			if(leastLeft > myBuilding[i].get("left")){
-				leastLeft = myBuilding[i].get("left");
-			}
-			if(highestLeft < myBuilding[i].get("left")){
-				highestLeft = myBuilding[i].get("left");
-			}
-			if(leastTop > myBuilding[i].get("top")){
-				leastTop = myBuilding[i].get("top");
-			}
-			if(highestTop < myBuilding[i].get("top")){
-				highestTop = myBuilding[i].get("top");
-			}			
-		}
-		if(zLeft > leastLeft && zLeft < highestLeft && zTop > leastTop && zTop < highestTop){
-			return true;
-		}		
-		return false;		
 	}
 	function deleteZombies(){
 		for(let i = 0; i < zombieTokenIds.length; i++){
