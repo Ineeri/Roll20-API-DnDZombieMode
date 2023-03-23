@@ -513,6 +513,7 @@
 	});
 	
 	function startGame(){
+		initGM();
 		createPlayerCharacterSheets();
 		createZombieCharacterSheet();
 		createZombieBossCharacterSheet();
@@ -1114,7 +1115,7 @@
 	}
 	function setDefaultAttributes(){
 		for(let i = 0; i < players.length; i++){
-			attributeCreator("ep", playerCharacterIds[i], 30);
+			attributeCreator("ep", playerCharacterIds[i], 20);
 			attributeCreator("hp", playerCharacterIds[i], 15, 15);
 			attributeCreator("ac", playerCharacterIds[i], 10);
 			attributeCreator("speed", playerCharacterIds[i], 30);
@@ -1792,6 +1793,7 @@
 		gmPage = findObjs({ _type: "page", _id: gmPlayer.get("lastpage")})[0];
 		if(!gmPage || gmPage == undefined){
 			log(PROJECT_NAME + " --> No GM lastpage found!");
+			gmPage = findObjs({ _type: "page"})[0];
 		}
 		// TODO check for gridSize via gmPage -> dynamic
 		gridSize = 70;
@@ -1805,6 +1807,7 @@
 		}
 		if(!players || players == undefined){
 			log(PROJECT_NAME + " --> No Players found!");
+			sendChat(PROJECT_NAME, "/w gm &{template:default}{{desc=Currently no Players found!}}");
 		}
 		if(players.length > 8){
 			log(PROJECT_NAME + " --> Currently too many Players found!");
